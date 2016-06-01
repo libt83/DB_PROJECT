@@ -4,7 +4,6 @@ import javafx.scene.Scene;
 import javafx.scene.SubScene;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
@@ -34,13 +33,20 @@ public class MainController
     private MenuItem deleteEmployee;
 
     @FXML
+    private MenuItem empReview;
+
+    @FXML
     private SubScene mainSubscene;
 
     public void addEmployeeView() throws IOException
     {
         mainSubscene.setRoot(FXMLLoader.load(getClass().getResource("addEmployeeView.fxml")));
+        mainSubscene.setHeight(550.00);
+        mainSubscene.setWidth(550.00);
+        Scene currScene = (Scene)mainSubscene.getScene();
         Stage theStage = (Stage)mainSubscene.getScene().getWindow();
-        theStage.sizeToScene();
+        theStage.setMinHeight(600);
+        theStage.setMinWidth(500);
         theStage.centerOnScreen();
 
     }
