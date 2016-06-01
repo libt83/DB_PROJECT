@@ -17,7 +17,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ReviewController">
    <top>
-      <Label alignment="BOTTOM_CENTER" prefHeight="44.0" prefWidth="600.0" text="Employee Review " textAlignment="CENTER" BorderPane.alignment="CENTER">
+      <Label alignment="BOTTOM_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="600.0" text="Employee Review " textAlignment="CENTER" BorderPane.alignment="CENTER">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
@@ -26,8 +26,8 @@
    <center>
       <VBox prefHeight="471.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Separator prefHeight="22.0" prefWidth="600.0" />
-            <TextArea fx:id="reviewNoteArea" prefHeight="286.0" prefWidth="400.0" promptText="Enter employee review notes here (500 max characters)">
+            <Separator minHeight="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="600.0" />
+            <TextArea fx:id="reviewNoteArea" prefHeight="314.0" prefWidth="400.0" promptText="Enter employee review notes here (500 max characters)">
                <VBox.margin>
                   <Insets left="100.0" right="100.0" />
                </VBox.margin>
