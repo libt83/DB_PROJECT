@@ -38,18 +38,48 @@ public class MainController
     @FXML
     private SubScene mainSubscene;
 
+    /**
+     * loads the addEmployeeView into the stage.<br>
+     *
+     * @throws IOException
+     */
     public void addEmployeeView() throws IOException
     {
         mainSubscene.setRoot(FXMLLoader.load(getClass().getResource("addEmployeeView.fxml")));
-        mainSubscene.setHeight(550.00);
+        mainSubscene.setHeight(600.00);
         mainSubscene.setWidth(550.00);
         Scene currScene = (Scene)mainSubscene.getScene();
         Stage theStage = (Stage)mainSubscene.getScene().getWindow();
-        theStage.setMinHeight(600);
-        theStage.setMinWidth(500);
+        theStage.setMinHeight(640);
+        theStage.setMinWidth(550);
         theStage.centerOnScreen();
-
     }
+
+    /**
+     * loads the createReviewView into the stage. <br>
+     *
+     * @throws IOException
+     */
+    public void createReviewView() throws IOException
+    {
+        mainSubscene.setRoot(FXMLLoader.load(getClass().getResource("reviewView.fxml")));
+        mainSubscene.setHeight(580);
+        mainSubscene.setWidth(550);
+        Scene currScene = (Scene)mainSubscene.getScene();
+        Stage theStage = (Stage)mainSubscene.getScene().getWindow();
+        theStage.setMinHeight(640);
+        theStage.setMinWidth(600);
+        theStage.centerOnScreen();
+    }
+
+    /**
+     *  exits the program.
+     */
+    public void exitProgram()
+    {
+        System.exit(0);
+    }
+
 }
 
 
