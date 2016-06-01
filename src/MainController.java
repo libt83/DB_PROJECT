@@ -39,6 +39,18 @@ public class MainController
     @FXML
     private SubScene mainSubscene;
 
+    @FXML
+    private void initialize() throws IOException
+    {
+        mainSubscene.setRoot(FXMLLoader.load(getClass().getResource("mainSubScene.fxml")));
+        mainSubscene.setHeight(400);
+        mainSubscene.setWidth(600);
+//        theStage = (Stage)mainSubscene.getScene().getWindow();
+//        theStage.setHeight(620);
+//        theStage.setWidth(420);
+//        theStage.centerOnScreen();
+    }
+
     /**
      * loads the addEmployeeView into the stage.<br>
      *

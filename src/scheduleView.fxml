@@ -20,7 +20,7 @@
          <children>
             <Label alignment="BOTTOM_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="600.0" text="Create Schedule" textAlignment="CENTER">
                <font>
-                  <Font name="Avenir Oblique" size="36.0" />
+                  <Font name="Avenir Black Oblique" size="36.0" />
                </font>
             </Label>
             <Separator prefHeight="22.0" prefWidth="600.0" />
