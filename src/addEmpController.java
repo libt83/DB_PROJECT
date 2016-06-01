@@ -21,7 +21,7 @@ public class AddEmpController
     /** creates a connection to the database */
     private MYSQL_Connection dbConnect;
 
-    ObservableList<String> jobPositions = FXCollections.observableArrayList("cashier", "host/hostess",
+    private ObservableList<String> jobPositions = FXCollections.observableArrayList("cashier", "host/hostess",
                                                                             "busser", "waiter/waitress",
                                                                             "bartender", "chef", "line cook",
                                                                             "instructor I", "instructor II",
@@ -32,13 +32,13 @@ public class AddEmpController
                                                                             "shuttle driver", "parking lot attendent",
                                                                             "snowmaking staff", "concierge");
 
-    ObservableList<String> wageSalary = FXCollections.observableArrayList("wage", "salary");
+    private ObservableList<String> wageSalary = FXCollections.observableArrayList("wage", "salary");
 
-    ObservableList<String> status = FXCollections.observableArrayList("full-time", "part-time", "temporary");
+    private ObservableList<String> status = FXCollections.observableArrayList("full-time", "part-time", "temporary");
 
-    ObservableList<String> genderList = FXCollections.observableArrayList("M", "F");
+    private ObservableList<String> genderList = FXCollections.observableArrayList("M", "F");
 
-    ObservableList<String> stateAbbr = FXCollections.observableArrayList("AL", "AK", "AZ", "AR", "CA","CO","CT","DE",
+    private ObservableList<String> stateAbbr = FXCollections.observableArrayList("AL", "AK", "AZ", "AR", "CA","CO","CT","DE",
                                                                          "FL","GA","HI","ID","IL","IN","IA","KS","KY",
                                                                          "LA","ME","MD","MA","MI","MN","MS","MO","MT",
                                                                          "NE","NV","NH","NJ","NM","NY","NC","ND","OH",
@@ -142,7 +142,6 @@ public class AddEmpController
 
         String gender = (String) genderBox.getSelectionModel().getSelectedItem();
         genderBox.setValue(" ");
-
 
         String phone = phoneField.getText();
         phoneField.clear();

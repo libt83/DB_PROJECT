@@ -1,6 +1,5 @@
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.SubScene;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -48,7 +47,6 @@ public class MainController
         mainSubscene.setRoot(FXMLLoader.load(getClass().getResource("addEmployeeView.fxml")));
         mainSubscene.setHeight(600.00);
         mainSubscene.setWidth(550.00);
-        Scene currScene = (Scene)mainSubscene.getScene();
         Stage theStage = (Stage)mainSubscene.getScene().getWindow();
         theStage.setMinHeight(640);
         theStage.setMinWidth(550);
@@ -65,13 +63,27 @@ public class MainController
         mainSubscene.setRoot(FXMLLoader.load(getClass().getResource("reviewView.fxml")));
         mainSubscene.setHeight(580);
         mainSubscene.setWidth(550);
-        Scene currScene = (Scene)mainSubscene.getScene();
         Stage theStage = (Stage)mainSubscene.getScene().getWindow();
         theStage.setMinHeight(640);
         theStage.setMinWidth(600);
         theStage.centerOnScreen();
     }
 
+    /**
+     * loads the updateEmpView into the stage. <br>
+     *
+     * @throws IOException
+     */
+    public void updateEmpView() throws IOException
+    {
+        mainSubscene.setRoot(FXMLLoader.load(getClass().getResource("updateEmpView.fxml")));
+        mainSubscene.setHeight(580);
+        mainSubscene.setWidth(550);
+        Stage theStage = (Stage)mainSubscene.getScene().getWindow();
+        theStage.setMinHeight(640);
+        theStage.setMinWidth(600);
+        theStage.centerOnScreen();
+    }
     /**
      *  exits the program.
      */
