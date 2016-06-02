@@ -47,50 +47,34 @@ public class ReviewController
     {
         dbConnect = new MYSQL_Connection();
         Connection connection = dbConnect.getConnection();
+        DB_Queries dbQueries = new DB_Queries(connection);
         String first, last;
         first = firstName.getText();
         last = lastName.getText();
         firstName.clear();
         lastName.clear();
 
-        int empID = queryEmpID(first,last,connection);
 
-        int ratingNum = (int) ratingCombo.getSelectionModel().getSelectedItem();
-        ratingCombo.getEditor().clear();
+        boolean bool = dbQueries.doesEmpExist(first,last);
+        if(bool)
+        {
+            int empID = dbQueries.queryEmpID(first,last);
 
-        LocalDate revDate = reviewDatePicker.getValue();
-        reviewDatePicker.getEditor().clear();
-        Date reviewDate = Date.valueOf(revDate);
+            int ratingNum = (int) ratingCombo.getSelectionModel().getSelectedItem();
+            ratingCombo.getEditor().clear();
 
-        String revNotes = reviewNoteArea.getText();
-        reviewNoteArea.setPromptText("Enter employee review notes here (500 max characters)");
+            LocalDate revDate = reviewDatePicker.getValue();
+            reviewDatePicker.getEditor().clear();
+            Date reviewDate = Date.valueOf(revDate);
 
-        insertReviewTable(empID,ratingNum,reviewDate,revNotes,connection);
-        connection.close();
-    }
+            String revNotes = reviewNoteArea.getText();
+            reviewNoteArea.setPromptText("Enter employee review notes here (500 max characters)");
 
-    /**
-     * Queries the database to get the empID for a given employee's first and last name<br>
-     * then returns the empID.<br>
-     *
-     * @param firstName - the first name of the employee
-     * @param lastName - the last name of the employee
-     * @param theConnection - the database connection
-     * @return - the empID
-     * @throws SQLException
-     */
-    private int queryEmpID(final String firstName, final String lastName, final Connection theConnection) throws SQLException
-    {
-        Statement stmt = theConnection.createStatement();
-
-        String query = "select empID from semba_brandon_db.EMPLOYEE where firstName = '"
-                       + firstName + "' and lastName = '" + lastName + "'";
-
-        ResultSet rs = stmt.executeQuery(query);
-        rs.next();
-        int employeeID = rs.getInt("empID");
-        stmt.close();
-        return employeeID;
+            insertReviewTable(empID,ratingNum,reviewDate,revNotes,connection);
+            connection.close();
+        }else{
+            dbQueries.generateWarning();
+        }
     }
 
     private void insertReviewTable(final int theID, final int theRatingNum,

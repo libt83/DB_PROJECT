@@ -1,3 +1,5 @@
+import javafx.scene.control.Alert;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -38,7 +40,6 @@ public class DB_Queries
         ResultSet rs = stmt.executeQuery(query);
         rs.next();
         int result = rs.getInt(1);
-        System.out.println(result);
         stmt.close();
 
         if(result == 0)
@@ -48,6 +49,39 @@ public class DB_Queries
            return true;
         }
 
+    }
+
+    /**
+     * Generates a warning when employee entered does not exist in database.
+     */
+    public void generateWarning()
+    {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("ERROR - INVALID INPUT");
+        alert.setHeaderText("The employee entered does not exist");
+        alert.setContentText("Please try again");
+        alert.showAndWait();
+    }
+
+    /**
+     *
+     * @param firstName
+     * @param lastName
+     * @return
+     * @throws SQLException
+     */
+    public int queryEmpID(final String firstName, final String lastName) throws SQLException
+    {
+        Statement stmt = myConnection.createStatement();
+
+        String query = "select empID from semba_brandon_db.EMPLOYEE where firstName = '"
+                       + firstName + "' and lastName = '" + lastName + "'";
+
+        ResultSet rs = stmt.executeQuery(query);
+        rs.next();
+        int employeeID = rs.getInt("empID");
+        stmt.close();
+        return employeeID;
     }
 
     /**

@@ -45,10 +45,6 @@ public class MainController
         mainSubscene.setRoot(FXMLLoader.load(getClass().getResource("mainSubScene.fxml")));
         mainSubscene.setHeight(400);
         mainSubscene.setWidth(600);
-//        theStage = (Stage)mainSubscene.getScene().getWindow();
-//        theStage.setHeight(620);
-//        theStage.setWidth(420);
-//        theStage.centerOnScreen();
     }
 
     /**
@@ -62,7 +58,7 @@ public class MainController
         mainSubscene.setHeight(600.00);
         mainSubscene.setWidth(550.00);
         theStage = (Stage)mainSubscene.getScene().getWindow();
-        theStage.setHeight(640);
+        theStage.setHeight(660);
         theStage.setWidth(540);
         theStage.centerOnScreen();
     }
@@ -91,10 +87,10 @@ public class MainController
     public void createReviewView() throws IOException
     {
         mainSubscene.setRoot(FXMLLoader.load(getClass().getResource("reviewView.fxml")));
-        mainSubscene.setHeight(575);
+        mainSubscene.setHeight(560);
         mainSubscene.setWidth(600);
         theStage = (Stage)mainSubscene.getScene().getWindow();
-        theStage.setHeight(640);
+        theStage.setHeight(580);
         theStage.setWidth(600);
         theStage.centerOnScreen();
     }
@@ -107,11 +103,11 @@ public class MainController
     public void addCertView() throws IOException
     {
         mainSubscene.setRoot(FXMLLoader.load(getClass().getResource("addCertView.fxml")));
-        mainSubscene.setHeight(580);
-        mainSubscene.setWidth(550);
+        mainSubscene.setHeight(400);
+        mainSubscene.setWidth(600);
         theStage = (Stage)mainSubscene.getScene().getWindow();
-        theStage.setMinHeight(640);
-        theStage.setMinWidth(600);
+        theStage.setHeight(470);
+        theStage.setWidth(600);
         theStage.centerOnScreen();
     }
 
