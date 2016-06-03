@@ -56,9 +56,9 @@
                   </Label>
                   <GridPane>
                     <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="282.0" minWidth="10.0" prefWidth="278.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="290.0" minWidth="10.0" prefWidth="111.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="228.0" minWidth="0.0" prefWidth="205.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="282.0" minWidth="10.0" prefWidth="267.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="290.0" minWidth="10.0" prefWidth="156.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="228.0" minWidth="0.0" prefWidth="177.0" />
                     </columnConstraints>
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -68,8 +68,8 @@
                      <children>
                         <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="284.0" text="Certification:" />
                         <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="289.0" text="Expiration Date:" GridPane.rowIndex="1" />
-                        <DatePicker fx:id="expDate" prefHeight="27.0" prefWidth="109.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <ComboBox fx:id="certCombo" prefHeight="27.0" prefWidth="109.0" GridPane.columnIndex="1" />
+                        <DatePicker fx:id="expDate" prefHeight="27.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="certCombo" prefHeight="27.0" prefWidth="143.0" GridPane.columnIndex="1" />
                      </children>
                   </GridPane>
                   <GridPane prefHeight="24.0" prefWidth="281.0">

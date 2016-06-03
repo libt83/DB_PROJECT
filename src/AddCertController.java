@@ -19,7 +19,7 @@ public class AddCertController
     private DB_Queries dbQueries;
 
     private ObservableList<String> certList = FXCollections.observableArrayList("work visa","food handler","alcohol serving",
-                                                                                "first/aid/CPR","AIARE level I","AIARE level II",
+                                                                                "first aid/CPR","AIARE level I","AIARE level II",
                                                                                 "AIARE level III");
 
     @FXML
@@ -63,6 +63,7 @@ public class AddCertController
         {
             int empID = dbQueries.queryEmpID(first,last);
             String certName = (String) certCombo.getSelectionModel().getSelectedItem();
+            certCombo.setValue("");
             int certID = queryCertID(certName,connection);
             LocalDate exp  = expDate.getValue();
             expDate.getEditor().clear();
@@ -97,7 +98,7 @@ public class AddCertController
     }
 
     /**
-     * Inserts the cert info, along with empID into the EMP_CERT_GLUE.
+     *
      *
      * @param certID - certification ID
      * @param empID - employee ID
@@ -112,9 +113,18 @@ public class AddCertController
                              + "(?,?)";
 
         PreparedStatement pStmt = connection.prepareStatement(insertTable);
-//        pStmt.setInt(1,empID);
         pStmt.setInt(1,certID);
         pStmt.setDate(2,expDate);
+        pStmt.executeUpdate();
+
+        insertTable = "INSERT INTO semba_brandon_db.EMP_CERT_GLUE"
+                      + "(empGlueID,certGlueID,certGlueExp) VALUES"
+                      + "(?,?,?)";
+
+        pStmt = connection.prepareStatement(insertTable);
+        pStmt.setInt(1,empID);
+        pStmt.setInt(2,certID);
+        pStmt.setDate(3,expDate);
         pStmt.executeUpdate();
         pStmt.close();
     }

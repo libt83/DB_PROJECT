@@ -53,7 +53,7 @@ public class ReviewController
         last = lastName.getText();
         firstName.clear();
         lastName.clear();
-
+        reviewNoteArea.setPromptText("Enter employee review notes here (500 max characters)");
 
         boolean bool = dbQueries.doesEmpExist(first,last);
         if(bool)
@@ -61,14 +61,14 @@ public class ReviewController
             int empID = dbQueries.queryEmpID(first,last);
 
             int ratingNum = (int) ratingCombo.getSelectionModel().getSelectedItem();
-            ratingCombo.getEditor().clear();
+            ratingCombo.setValue("");
 
             LocalDate revDate = reviewDatePicker.getValue();
             reviewDatePicker.getEditor().clear();
             Date reviewDate = Date.valueOf(revDate);
 
             String revNotes = reviewNoteArea.getText();
-            reviewNoteArea.setPromptText("Enter employee review notes here (500 max characters)");
+            reviewNoteArea.clear();
 
             insertReviewTable(empID,ratingNum,reviewDate,revNotes,connection);
             connection.close();

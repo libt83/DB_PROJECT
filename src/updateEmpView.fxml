@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="296.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="65.0" prefWidth="601.0" text="Update Employee">
+         <font>
+            <Font name="Avenir Black Oblique" size="24.0" />
+         </font>
+      </Label>
+      <Separator prefWidth="200.0" />
+      <GridPane>
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="293.02783203125" minWidth="10.0" prefWidth="39.322208404541016" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="293.02783203125" minWidth="10.0" prefWidth="200.67779159545898" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="501.96022033691406" minWidth="10.0" prefWidth="155.80508422851562" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="501.96022033691406" minWidth="10.0" prefWidth="56.155120849609375" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="501.96022033691406" minWidth="10.0" prefWidth="173.84487915039062" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="501.96022033691406" minWidth="10.0" prefWidth="174.74935913085938" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="501.96022033691406" minWidth="10.0" prefWidth="49.250640869140625" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <CheckBox fx:id="firstNameCheck" mnemonicParsing="false" prefHeight="18.0" prefWidth="152.0" text="First Name:" GridPane.columnIndex="1" />
+            <TextField fx:id="firstNameText" prefHeight="27.0" prefWidth="180.0" GridPane.columnIndex="2" />
+            <CheckBox fx:id="lastNameCheck" mnemonicParsing="false" text="Last Name:" GridPane.columnIndex="4" />
+            <TextField fx:id="lastNameText" prefHeight="27.0" prefWidth="151.0" GridPane.columnIndex="5" />
+            <CheckBox fx:id="addressCheck" mnemonicParsing="false" text="Address:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <CheckBox fx:id="stateCheck" mnemonicParsing="false" text="State:" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <CheckBox fx:id="zipCheck" mnemonicParsing="false" text="Zipdcode:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <CheckBox fx:id="statusCheck" mnemonicParsing="false" text="Status:" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <CheckBox fx:id="emailCheck" mnemonicParsing="false" text="Email:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <CheckBox fx:id="phoneCheck" mnemonicParsing="false" text="Phone Number:" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <CheckBox fx:id="compCheck" mnemonicParsing="false" text="Compensation:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <ComboBox fx:id="payTypeCombo" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <TextField fx:id="compText" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <TextField fx:id="emailText" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField fx:id="adressText" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField fx:id="zipText" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <TextField fx:id="phoneText" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <ComboBox fx:id="stateCombo" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <ComboBox fx:id="statusCombo" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+         </children>
+      </GridPane>
+      <GridPane>
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="updateBtn" mnemonicParsing="false" prefHeight="27.0" prefWidth="200.0" text="Update Employee Info" GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
+   </children>
+</VBox>
