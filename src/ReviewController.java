@@ -47,7 +47,7 @@ public class ReviewController
     {
         dbConnect = new MYSQL_Connection();
         Connection connection = dbConnect.getConnection();
-        DB_Queries dbQueries = new DB_Queries(connection);
+        DB_Support db_support = new DB_Support(connection);
         String first, last;
         first = firstName.getText();
         last = lastName.getText();
@@ -55,10 +55,10 @@ public class ReviewController
         lastName.clear();
         reviewNoteArea.setPromptText("Enter employee review notes here (500 max characters)");
 
-        boolean bool = dbQueries.doesEmpExist(first,last);
+        boolean bool = db_support.doesEmpExist(first,last);
         if(bool)
         {
-            int empID = dbQueries.queryEmpID(first,last);
+            int empID = db_support.queryEmpID(first,last);
 
             int ratingNum = (int) ratingCombo.getSelectionModel().getSelectedItem();
             ratingCombo.setValue("");
@@ -73,7 +73,7 @@ public class ReviewController
             insertReviewTable(empID,ratingNum,reviewDate,revNotes,connection);
             connection.close();
         }else{
-            dbQueries.generateWarning();
+            db_support.generateWarning();
         }
     }
 

@@ -16,7 +16,7 @@ public class AddCertController
 {
     private MYSQL_Connection dbConnect;
 
-    private DB_Queries dbQueries;
+    private DB_Support db_support;
 
     private ObservableList<String> certList = FXCollections.observableArrayList("work visa","food handler","alcohol serving",
                                                                                 "first aid/CPR","AIARE level I","AIARE level II",
@@ -49,7 +49,7 @@ public class AddCertController
     {
         dbConnect = new MYSQL_Connection();
         Connection connection = dbConnect.getConnection();
-        dbQueries = new DB_Queries(connection);
+        db_support = new DB_Support(connection);
 
         String first,last;
         first = firstName.getText();
@@ -57,11 +57,11 @@ public class AddCertController
 
         last = lastName.getText();
         lastName.clear();
-        boolean bool = dbQueries.doesEmpExist(first, last);
+        boolean bool = db_support.doesEmpExist(first, last);
 
         if(bool)
         {
-            int empID = dbQueries.queryEmpID(first,last);
+            int empID = db_support.queryEmpID(first,last);
             String certName = (String) certCombo.getSelectionModel().getSelectedItem();
             certCombo.setValue("");
             int certID = queryCertID(certName,connection);
@@ -71,7 +71,7 @@ public class AddCertController
 
             insertCert(certID,empID,certExpDate,connection);
         }else{
-            dbQueries.generateWarning();
+            db_support.generateWarning();
         }
     }
 

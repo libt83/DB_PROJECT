@@ -96,24 +96,24 @@ public class AddEmpController
     @FXML
     private void initialize()
     {
-        // initiliaze job position combo box
-        positionBox.setValue(" ");
+        // initialize job position combo box
+        positionBox.getEditor().clear();
         positionBox.setItems(jobPositions);
 
         // initialize pay combo box
-        payBox.setValue(" ");
+        payBox.getEditor().clear();
         payBox.setItems(wageSalary);
 
         // initialize gender combo box
-        genderBox.setValue(" ");
+        genderBox.getEditor().clear();
         genderBox.setItems(genderList);
 
         // initialize state abbr. combo box
-        stateBox.setPromptText(" ");
+        stateBox.getEditor().clear();
         stateBox.setItems(stateAbbr);
 
-        //initialize emp status combo box
-        empStatusBox.setPromptText(" ");
+        // initialize emp status combo box
+        empStatusBox.getEditor().clear();
         empStatusBox.setItems(status);
     }
 
@@ -129,6 +129,7 @@ public class AddEmpController
     {
         dbConnect = new MYSQL_Connection();
         Connection connection = dbConnect.getConnection();
+        DB_Support dbQueries = new DB_Support(connection);
 
         String firstName = firstNameField.getText();
         firstNameField.clear();
@@ -141,7 +142,7 @@ public class AddEmpController
         Date dobDate = Date.valueOf(dob);
 
         String gender = (String) genderBox.getSelectionModel().getSelectedItem();
-        genderBox.setValue(" ");
+        genderBox.setValue("");
 
         String phone = phoneField.getText();
         phoneField.clear();
@@ -153,7 +154,7 @@ public class AddEmpController
         addrField.clear();
 
         String state = (String)stateBox.getSelectionModel().getSelectedItem();
-        stateBox.setValue(" ");
+        stateBox.setValue("");
 
         String zip = zipField.getText();
         zipField.clear();
@@ -163,12 +164,12 @@ public class AddEmpController
         nationField.clear();
 
         String empPosition = (String) positionBox.getSelectionModel().getSelectedItem();
-        positionBox.setValue(" ");
+        positionBox.setValue("");
         int positionID = queryPosID(empPosition,connection);
 
 
         String empStatus = (String) empStatusBox.getSelectionModel().getSelectedItem();
-        empStatusBox.setValue(" ");
+        empStatusBox.setValue("");
 
         LocalDate hire = hireDatePicker.getValue();
         hireDatePicker.getEditor().clear();
@@ -196,13 +197,13 @@ public class AddEmpController
         pStmt.executeUpdate();
 
         // adds pay information to either the SALARY of NON_SALARY tables in database
-        int employID = queryEmpID(firstName, lastName, connection);
+        int employID = dbQueries.queryEmpID(firstName, lastName);
         Double empPay = Double.parseDouble(payField.getText());
         payField.clear();
 
 
         String compenType = (String) payBox.getSelectionModel().getSelectedItem();
-        payBox.setValue(" ");
+        payBox.setValue("");
         if(compenType.equals("wage"))
         {
             insertPayInfo(compenType, empPay, employID, connection);
@@ -258,30 +259,6 @@ public class AddEmpController
         int posID = rs.getInt("posID");
         stmt.close();
         return posID;
-    }
-
-    /**
-     * Queries the database to get the empID for a given employee's first and last name<br>
-     * then returns the empID.<br>
-     *
-     * @param firstName - the first name of the employee
-     * @param lastName - the last name of the employee
-     * @param theConnection - the database connection
-     * @return - the empID
-     * @throws SQLException
-     */
-    private int queryEmpID(final String firstName, final String lastName, final Connection theConnection) throws SQLException
-    {
-        Statement stmt = theConnection.createStatement();
-
-        String query = "select empID from semba_brandon_db.EMPLOYEE where firstName = '"
-                       + firstName + "' and lastName = '" + lastName + "'";
-
-        ResultSet rs = stmt.executeQuery(query);
-        rs.next();
-        int employeeID = rs.getInt("empID");
-        stmt.close();
-        return employeeID;
     }
 
     /**

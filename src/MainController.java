@@ -71,11 +71,11 @@ public class MainController
     public void updateEmpView() throws IOException
     {
         mainSubscene.setRoot(FXMLLoader.load(getClass().getResource("updateEmpView.fxml")));
-        mainSubscene.setHeight(580);
-        mainSubscene.setWidth(570);
+        mainSubscene.setHeight(296);
+        mainSubscene.setWidth(600);
         theStage = (Stage)mainSubscene.getScene().getWindow();
-        theStage.setHeight(640);
-        theStage.setWidth(640);
+        theStage.setHeight(340);
+        theStage.setWidth(600);
         theStage.centerOnScreen();
     }
 
@@ -117,6 +117,22 @@ public class MainController
      * @throws IOException
      */
     public void scheduleView() throws IOException
+    {
+        mainSubscene.setRoot(FXMLLoader.load(getClass().getResource("scheduleView.fxml")));
+        mainSubscene.setHeight(300);
+        mainSubscene.setWidth(600);
+        theStage = (Stage)mainSubscene.getScene().getWindow();
+        theStage.setHeight(350);
+        theStage.setWidth(600);
+        theStage.centerOnScreen();
+    }
+
+    /**
+     * loads the scheduleView into the stage. <br>
+     *
+     * @throws IOException
+     */
+    public void empReportView() throws IOException
     {
         mainSubscene.setRoot(FXMLLoader.load(getClass().getResource("scheduleView.fxml")));
         mainSubscene.setHeight(300);

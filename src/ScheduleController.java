@@ -17,7 +17,7 @@ public class ScheduleController
 {
     private MYSQL_Connection dbConnect;
 
-    private DB_Queries dbQueries;
+    private DB_Support db_support;
 
     @FXML
     private TextField firstName;
@@ -64,14 +64,14 @@ public class ScheduleController
         String first,last,monday,tuesday,wednesday,thursday,friday,saturday,sunday;
         dbConnect = new MYSQL_Connection();
         Connection connection = dbConnect.getConnection();
-        dbQueries = new DB_Queries(connection);
+        db_support = new DB_Support(connection);
 
         first = firstName.getText();
         firstName.clear();
 
         last = lastName.getText();
         lastName.clear();
-        boolean bool = dbQueries.doesEmpExist(first, last);
+        boolean bool = db_support.doesEmpExist(first, last);
 
         if(bool)
         {
@@ -99,7 +99,7 @@ public class ScheduleController
             {
                 intTue = Integer.parseInt("0");
             }else{
-                intTue = Integer.parseInt(monday);
+                intTue = Integer.parseInt(tuesday);
             }
 
             wednesday = wed.getText();
@@ -108,7 +108,7 @@ public class ScheduleController
             {
                 intWed = Integer.parseInt("0");
             }else{
-                intWed = Integer.parseInt(monday);
+                intWed = Integer.parseInt(wednesday);
             }
 
             thursday = thur.getText();
@@ -117,7 +117,7 @@ public class ScheduleController
             {
                 intThur = Integer.parseInt("0");
             }else{
-                intThur = Integer.parseInt(monday);
+                intThur = Integer.parseInt(thursday);
             }
 
             friday = fri.getText();
@@ -126,7 +126,7 @@ public class ScheduleController
             {
                 intFri = Integer.parseInt("0");
             }else{
-                intFri = Integer.parseInt(monday);
+                intFri = Integer.parseInt(friday);
             }
 
             saturday = sat.getText();
@@ -135,7 +135,7 @@ public class ScheduleController
             {
                 intSat = Integer.parseInt("0");
             }else{
-                intSat = Integer.parseInt(monday);
+                intSat = Integer.parseInt(saturday);
             }
 
             sunday = sun.getText();
@@ -144,15 +144,15 @@ public class ScheduleController
             {
                 intSun = Integer.parseInt("0");
             }else{
-                intSun = Integer.parseInt(monday);
+                intSun = Integer.parseInt(sunday);
             }
 
-            int empID = dbQueries.queryEmpID(first, last);
+            int empID = db_support.queryEmpID(first, last);
             insertSchedule(empID,startDate,endDate,intMon,intTue,intWed,
                            intThur,intFri,intSat,intSun,connection);
             connection.close();
         }else{
-            dbQueries.generateWarning();
+            db_support.generateWarning();
         }
     }
 

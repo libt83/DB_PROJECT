@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
@@ -12,16 +13,35 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="296.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="296.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UpdateEmpController">
    <children>
       <Label alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="65.0" prefWidth="601.0" text="Update Employee">
          <font>
             <Font name="Avenir Black Oblique" size="24.0" />
          </font>
       </Label>
-      <Separator prefWidth="200.0" />
-      <GridPane>
+      <Separator prefWidth="200.0">
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
+      </Separator>
+      <GridPane prefHeight="44.0" prefWidth="600.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="226.0" minWidth="10.0" prefWidth="209.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="236.0" minWidth="10.0" prefWidth="91.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="241.0" minWidth="10.0" prefWidth="49.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="250.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label alignment="CENTER_RIGHT" prefHeight="22.0" prefWidth="91.0" text="Employee ID:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="empIDText" prefHeight="27.0" prefWidth="71.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <GridPane prefHeight="162.0" prefWidth="600.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="293.02783203125" minWidth="10.0" prefWidth="39.322208404541016" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="293.02783203125" minWidth="10.0" prefWidth="200.67779159545898" />
@@ -32,34 +52,37 @@
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="501.96022033691406" minWidth="10.0" prefWidth="49.250640869140625" />
         </columnConstraints>
         <rowConstraints>
+          <RowConstraints />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <CheckBox fx:id="firstNameCheck" mnemonicParsing="false" prefHeight="18.0" prefWidth="152.0" text="First Name:" GridPane.columnIndex="1" />
-            <TextField fx:id="firstNameText" prefHeight="27.0" prefWidth="180.0" GridPane.columnIndex="2" />
-            <CheckBox fx:id="lastNameCheck" mnemonicParsing="false" text="Last Name:" GridPane.columnIndex="4" />
-            <TextField fx:id="lastNameText" prefHeight="27.0" prefWidth="151.0" GridPane.columnIndex="5" />
-            <CheckBox fx:id="addressCheck" mnemonicParsing="false" text="Address:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <CheckBox fx:id="stateCheck" mnemonicParsing="false" text="State:" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-            <CheckBox fx:id="zipCheck" mnemonicParsing="false" text="Zipdcode:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <CheckBox fx:id="statusCheck" mnemonicParsing="false" text="Status:" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-            <CheckBox fx:id="emailCheck" mnemonicParsing="false" text="Email:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <CheckBox fx:id="phoneCheck" mnemonicParsing="false" text="Phone Number:" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <CheckBox fx:id="compCheck" mnemonicParsing="false" text="Compensation:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <ComboBox fx:id="payTypeCombo" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-            <TextField fx:id="compText" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <TextField fx:id="emailText" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <TextField fx:id="adressText" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <TextField fx:id="zipText" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <TextField fx:id="phoneText" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-            <ComboBox fx:id="stateCombo" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
-            <ComboBox fx:id="statusCombo" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <CheckBox fx:id="firstNameCheck" mnemonicParsing="false" prefHeight="18.0" prefWidth="152.0" text="First Name:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="firstNameText" prefHeight="27.0" prefWidth="180.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <CheckBox fx:id="lastNameCheck" mnemonicParsing="false" text="Last Name:" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <TextField fx:id="lastNameText" prefHeight="27.0" prefWidth="151.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <CheckBox fx:id="addressCheck" mnemonicParsing="false" text="Address:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <CheckBox fx:id="stateCheck" mnemonicParsing="false" text="State:" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <CheckBox fx:id="zipCheck" mnemonicParsing="false" text="Zipdcode:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <CheckBox fx:id="statusCheck" mnemonicParsing="false" text="Status:" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <CheckBox fx:id="emailCheck" mnemonicParsing="false" text="Email:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <CheckBox fx:id="phoneCheck" mnemonicParsing="false" text="Phone Number:" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <CheckBox fx:id="compCheck" mnemonicParsing="false" text="Compensation:" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="compText" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <TextField fx:id="emailText" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField fx:id="addressText" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <TextField fx:id="zipText" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <TextField fx:id="phoneText" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <ComboBox fx:id="stateCombo" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <ComboBox fx:id="statusCombo" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+            <ComboBox fx:id="compCombo" prefWidth="150.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
          </children>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
       </GridPane>
       <GridPane>
         <columnConstraints>
@@ -70,9 +93,10 @@
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="updateBtn" mnemonicParsing="false" prefHeight="27.0" prefWidth="200.0" text="Update Employee Info" GridPane.columnIndex="1" />
+            <Button fx:id="updateBtn" mnemonicParsing="false" onAction="#updateEmpInfo" prefHeight="27.0" prefWidth="200.0" text="Update Employee Info" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </children>
