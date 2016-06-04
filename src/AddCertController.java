@@ -45,6 +45,10 @@ public class AddCertController
         certCombo.setItems(certList);
     }
 
+    /**
+     * Inserts an employee certification into the CERT table of the database.
+     * @throws SQLException
+     */
     public void addCertToDB() throws SQLException
     {
         dbConnect = new MYSQL_Connection();
@@ -76,7 +80,7 @@ public class AddCertController
     }
 
     /**
-     * Querys the CERT_TYPE table using the certName to retrieve the associated certID.
+     * Query the CERT_TYPE table using the certName to retrieve the associated certID.
      *
      * @param certName - the name of the certification
      * @param connection - the connection to the databse
@@ -86,7 +90,6 @@ public class AddCertController
     private int queryCertID(final String certName, final Connection connection) throws SQLException
     {
         Statement stmt = connection.createStatement();
-        System.out.println(certName);
         String query = "select certID from semba_brandon_db.CERT_TYPE where certName = '"
                        + certName + "'";
 
@@ -98,7 +101,7 @@ public class AddCertController
     }
 
     /**
-     *
+     * Inserts the certification into the database.
      *
      * @param certID - certification ID
      * @param empID - employee ID
@@ -109,24 +112,16 @@ public class AddCertController
     private void insertCert(final int certID, final int empID, final Date expDate, final Connection connection) throws SQLException
     {
         String insertTable = "INSERT INTO semba_brandon_db.CERT"
-                             + "(certID,certExp) VALUES"
-                             + "(?,?)";
+                             + "(certID,empIDcert,certExp) VALUES"
+                             + "(?,?,?)";
 
         PreparedStatement pStmt = connection.prepareStatement(insertTable);
         pStmt.setInt(1,certID);
-        pStmt.setDate(2,expDate);
-        pStmt.executeUpdate();
-
-        insertTable = "INSERT INTO semba_brandon_db.EMP_CERT_GLUE"
-                      + "(empGlueID,certGlueID,certGlueExp) VALUES"
-                      + "(?,?,?)";
-
-        pStmt = connection.prepareStatement(insertTable);
-        pStmt.setInt(1,empID);
-        pStmt.setInt(2,certID);
+        pStmt.setInt(2,empID);
         pStmt.setDate(3,expDate);
         pStmt.executeUpdate();
         pStmt.close();
+        connection.close();
     }
 
 }

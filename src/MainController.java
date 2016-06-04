@@ -80,6 +80,22 @@ public class MainController
     }
 
     /**
+     * loads the empDeleteView into the stage. <br>
+     *
+     * @throws IOException
+     */
+    public void empDeleteView() throws IOException
+    {
+        mainSubscene.setRoot(FXMLLoader.load(getClass().getResource("empDeleteView.fxml")));
+        mainSubscene.setHeight(253);
+        mainSubscene.setWidth(600);
+        theStage = (Stage)mainSubscene.getScene().getWindow();
+        theStage.setHeight(270);
+        theStage.setWidth(600);
+        theStage.centerOnScreen();
+    }
+
+    /**
      * loads the createReviewView into the stage. <br>
      *
      * @throws IOException
@@ -128,18 +144,18 @@ public class MainController
     }
 
     /**
-     * loads the scheduleView into the stage. <br>
+     * loads the empReportView into the stage. <br>
      *
      * @throws IOException
      */
     public void empReportView() throws IOException
     {
-        mainSubscene.setRoot(FXMLLoader.load(getClass().getResource("scheduleView.fxml")));
-        mainSubscene.setHeight(300);
-        mainSubscene.setWidth(600);
+        mainSubscene.setRoot(FXMLLoader.load(getClass().getResource("empReportView.fxml")));
+        mainSubscene.setHeight(800);
+        mainSubscene.setWidth(1000);
         theStage = (Stage)mainSubscene.getScene().getWindow();
-        theStage.setHeight(350);
-        theStage.setWidth(600);
+        theStage.setHeight(850);
+        theStage.setWidth(1000);
         theStage.centerOnScreen();
     }
 

@@ -133,6 +133,32 @@ public class DB_Support
         }
     }
 
+//    /**
+//     * Query the database to determine if the employee has a cert.
+//     * @param theEmpID - the employee ID
+//     * @return
+//     * @throws SQLException
+//     */
+//    public boolean doesCertExist(final int theEmpID) throws SQLException
+//    {
+//        Statement stmt  = myConnection.createStatement();
+//        String query = "select exists (select empNonSalaryID from semba_brandon_db.NON_SALARY "
+//                       + "where empNonSalaryID = " + theEmpID + ")";
+//
+//
+//        ResultSet rs = stmt.executeQuery(query);
+//        rs.next();
+//        int result = rs.getInt(1);
+//        stmt.close();
+//
+//        if(result == 0)
+//        {
+//            return false;
+//        }else{
+//            return true;
+//        }
+//    }
+
     /**
      * Query the database for a specific employee ID.
      *
