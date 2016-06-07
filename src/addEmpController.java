@@ -30,7 +30,7 @@ public class AddEmpController
                                                                             "chairlift operator", "maintenance",
                                                                             "equipment repair", "rental staff",
                                                                             "shuttle driver", "parking lot attendent",
-                                                                            "snowmaking staff", "concierge");
+                                                                            "manager","snowmaking staff", "concierge");
 
     private ObservableList<String> wageSalary = FXCollections.observableArrayList("wage", "salary");
 
@@ -176,7 +176,7 @@ public class AddEmpController
 
         Date hireDate = Date.valueOf(hire);
 
-        String insertTable = "INSERT INTO semba_brandon_db.EMPLOYEE"
+        String insertTable = "INSERT INTO sembab.EMPLOYEE"
                              + "(posID,firstName,lastName,dob,email,street,phoneNum,"
                              + "gender,nationality,empStatus,hireDate) VALUES"
                              + "(?,?,?,?,?,?,?,?,?,?,?)";
@@ -228,7 +228,7 @@ public class AddEmpController
     private void insertAddressTable(final String theStreet, final String theState,
                                final String theZip, Connection theConnection) throws SQLException
     {
-        String insertTable = "INSERT INTO semba_brandon_db.ADDRESS"
+        String insertTable = "INSERT INTO sembab.ADDRESS"
                              + "(street,zipcode,state) VALUES"
                              + "(?,?,?)";
 
@@ -251,7 +251,7 @@ public class AddEmpController
     {
         Statement stmt = theConnection.createStatement();
 
-        String query = "select posID from semba_brandon_db.POSITION where posName = '"
+        String query = "select posID from sembab.POSITION where posName = '"
                        + thePosition + "'";
 
         ResultSet rs = stmt.executeQuery(query);
@@ -284,7 +284,7 @@ public class AddEmpController
             tblName = "SALARY";
         }
 
-        String insertTable = "INSERT INTO semba_brandon_db." + tblName
+        String insertTable = "INSERT INTO sembab." + tblName
                              + "(" + empID + ", " + theString + ") VALUES"
                              + "(?,?)";
 

@@ -90,7 +90,7 @@ public class AddCertController
     private int queryCertID(final String certName, final Connection connection) throws SQLException
     {
         Statement stmt = connection.createStatement();
-        String query = "select certID from semba_brandon_db.CERT_TYPE where certName = '"
+        String query = "select certID from sembab.CERT_TYPE where certName = '"
                        + certName + "'";
 
         ResultSet rs = stmt.executeQuery(query);
@@ -111,7 +111,7 @@ public class AddCertController
      */
     private void insertCert(final int certID, final int empID, final Date expDate, final Connection connection) throws SQLException
     {
-        String insertTable = "INSERT INTO semba_brandon_db.CERT"
+        String insertTable = "INSERT INTO sembab.CERT"
                              + "(certID,empIDcert,certExp) VALUES"
                              + "(?,?,?)";
 

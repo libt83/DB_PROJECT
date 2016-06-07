@@ -82,7 +82,7 @@ public class ReviewController
                                    final String theReviewNotes,
                                    Connection theConnection) throws SQLException
     {
-        String insertTable = "INSERT INTO semba_brandon_db.REVIEW"
+        String insertTable = "INSERT INTO sembab.REVIEW"
                              + "(empID,reviewRating,reviewDate,reviewNote) VALUES"
                              + "(?,?,?,?)";
 

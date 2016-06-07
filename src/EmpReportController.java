@@ -35,7 +35,7 @@ public class EmpReportController
             Connection connection = dbconnect.getConnection();
             data = FXCollections.observableArrayList();
 
-            String query = "SELECT * from semba_brandon_db.EMPLOYEE natural join semba_brandon_db.POSITION";
+            String query = "SELECT * from sembab.EMPLOYEE natural join sembab.POSITION";
 
             ResultSet rs = connection.createStatement().executeQuery(query);
 

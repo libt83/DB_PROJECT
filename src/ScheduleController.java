@@ -1,5 +1,4 @@
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -176,7 +175,7 @@ public class ScheduleController
                                 final int tue, final int wed, final int thur, final int fri,
                                 final int sat, final int sun, final Connection connection) throws SQLException
     {
-        String insertTable = "INSERT INTO semba_brandon_db.SCHEDULE"
+        String insertTable = "INSERT INTO sembab.SCHEDULE"
                              + "(empSchedID,startDate,endDate,mon,tue,wed,thur,"
                              + "fri,sat,sun) VALUES"
                              + "(?,?,?,?,?,?,?,?,?,?)";

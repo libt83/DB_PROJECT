@@ -44,19 +44,19 @@ public class EmpDeleteController
             firstText.clear();
             lastText.clear();
 
-            String insertTable = "DELETE FROM semba_brandon_db.CERT WHERE empIDcert = "
+            String insertTable = "DELETE FROM sembab.CERT WHERE empIDcert = "
                                  + empID;
 
             PreparedStatement pStmt = connection.prepareStatement(insertTable);
             pStmt.executeUpdate();
 
-            insertTable = "DELETE FROM semba_brandon_db.EMPLOYEE WHERE empID = "
+            insertTable = "DELETE FROM sembab.EMPLOYEE WHERE empID = "
                            + empID;
 
             pStmt = connection.prepareStatement(insertTable);
             pStmt.executeUpdate();
 
-            insertTable = "DELETE FROM semba_brandon_db.ADDRESS WHERE street ='"
+            insertTable = "DELETE FROM sembab.ADDRESS WHERE street ='"
                                  + address + "'";
 
             pStmt = connection.prepareStatement(insertTable);

@@ -154,7 +154,7 @@ public class UpdateEmpController
                         firstNameCheck.setSelected(false);
                         lastNameCheck.setSelected(false);
 
-                        String insertTable = "UPDATE semba_brandon_db.EMPLOYEE SET firstName = ?, lastName = ?"
+                        String insertTable = "UPDATE sembab.EMPLOYEE SET firstName = ?, lastName = ?"
                                              + "WHERE empID = " + empID;
 
 
@@ -178,7 +178,7 @@ public class UpdateEmpController
                         firstNameText.clear();
                         lastNameCheck.setSelected(false);
 
-                        String insertTable = "UPDATE semba_brandon_db.EMPLOYEE SET firstName = ?"
+                        String insertTable = "UPDATE sembab.EMPLOYEE SET firstName = ?"
                                              + "WHERE empID = " + empID;
 
 
@@ -201,7 +201,7 @@ public class UpdateEmpController
                         lastNameText.clear();
                         lastNameCheck.setSelected(false);
 
-                        String insertTable = "UPDATE semba_brandon_db.EMPLOYEE SET lastName = ?"
+                        String insertTable = "UPDATE sembab.EMPLOYEE SET lastName = ?"
                                              + "WHERE empID = " + empID;
 
 
@@ -226,7 +226,7 @@ public class UpdateEmpController
                         emailText.clear();
                         emailCheck.setSelected(false);
 
-                        String insertTable = "UPDATE semba_brandon_db.EMPLOYEE SET email = ?"
+                        String insertTable = "UPDATE sembab.EMPLOYEE SET email = ?"
                                              + "WHERE empID = " + empID;
 
 
@@ -250,7 +250,7 @@ public class UpdateEmpController
                         phoneText.clear();
                         phoneCheck.setSelected(false);
 
-                        String insertTable = "UPDATE semba_brandon_db.EMPLOYEE SET phoneNum = ?"
+                        String insertTable = "UPDATE sembab.EMPLOYEE SET phoneNum = ?"
                                              + "WHERE empID = " + empID;
 
 
@@ -273,7 +273,7 @@ public class UpdateEmpController
                         String status = (String) statusCombo.getSelectionModel().getSelectedItem();
                         statusCombo.setValue("");
                         statusCheck.setSelected(false);
-                        String insertTable = "UPDATE semba_brandon_db.EMPLOYEE SET empStatus = ?"
+                        String insertTable = "UPDATE sembab.EMPLOYEE SET empStatus = ?"
                                              + "WHERE empID = " + empID;
 
                         PreparedStatement pStmt = connection.prepareStatement(insertTable);
@@ -296,7 +296,7 @@ public class UpdateEmpController
                         addressText.clear();
                         addressCheck.setSelected(false);
 
-                        String insertTable = "UPDATE semba_brandon_db.ADDRESS SET street = ?";
+                        String insertTable = "UPDATE sembab.ADDRESS SET street = ?";
 
                         PreparedStatement pStmt = connection.prepareStatement(insertTable);
 
@@ -319,7 +319,7 @@ public class UpdateEmpController
                         String street = db_support.queryEmpAddress(empID);
                         System.out.println(street);
 
-                        String insertTable = "UPDATE semba_brandon_db.ADDRESS SET state = ? WHERE street = '"
+                        String insertTable = "UPDATE sembab.ADDRESS SET state = ? WHERE street = '"
                                              + street + "'";
 
                         PreparedStatement pStmt = connection.prepareStatement(insertTable);
@@ -343,7 +343,7 @@ public class UpdateEmpController
                         zipCheck.setSelected(false);
                         String street = db_support.queryEmpAddress(empID);
 
-                        String insertTable = "UPDATE semba_brandon_db.ADDRESS SET zipcode = ? WHERE street = '"
+                        String insertTable = "UPDATE sembab.ADDRESS SET zipcode = ? WHERE street = '"
                                              + street + "'";
 
                         PreparedStatement pStmt = connection.prepareStatement(insertTable);
@@ -374,13 +374,13 @@ public class UpdateEmpController
                                 compCombo.setValue("");
                                 compCheck.setSelected(false);
 
-                                String insertTable = "DELETE FROM semba_brandon_db.SALARY WHERE empSalaryID = "
+                                String insertTable = "DELETE FROM sembab.SALARY WHERE empSalaryID = "
                                                      + empID;
 
                                 PreparedStatement pStmt = connection.prepareStatement(insertTable);
                                 pStmt.executeUpdate();
 
-                                insertTable = "INSERT INTO semba_brandon_db.NON_SALARY (empNonSalaryID,wage)"
+                                insertTable = "INSERT INTO sembab.NON_SALARY (empNonSalaryID,wage)"
                                               + "VALUES(?,?)";
                                 pStmt = connection.prepareStatement(insertTable);
                                 pStmt.setInt(1,empID);
@@ -395,7 +395,7 @@ public class UpdateEmpController
                                 compCombo.setValue("");
                                 compCheck.setSelected(false);
 
-                                String insertTable = "UPDATE semba_brandon_db.NON_SALARY SET wage = ? "
+                                String insertTable = "UPDATE sembab.NON_SALARY SET wage = ? "
                                                      + "where empNonSalaryID = " + empID;
                                 PreparedStatement pStmt = connection.prepareStatement(insertTable);
                                 pStmt.setDouble(1,wage);
@@ -413,13 +413,13 @@ public class UpdateEmpController
                                 compCombo.setValue("");
                                 compCheck.setSelected(false);
 
-                                String insertTable = "DELETE FROM semba_brandon_db.NON_SALARY WHERE empNonSalaryID = "
+                                String insertTable = "DELETE FROM sembab.NON_SALARY WHERE empNonSalaryID = "
                                                      + empID;
 
                                 PreparedStatement pStmt = connection.prepareStatement(insertTable);
                                 pStmt.executeUpdate();
 
-                                insertTable = "INSERT INTO semba_brandon_db.SALARY (empSalaryID,salary)"
+                                insertTable = "INSERT INTO sembab.SALARY (empSalaryID,salary)"
                                               + "VALUES(?,?)";
                                 pStmt = connection.prepareStatement(insertTable);
                                 pStmt.setInt(1,empID);
@@ -434,7 +434,7 @@ public class UpdateEmpController
                                 compCombo.setValue("");
                                 compCheck.setSelected(false);
 
-                                String insertTable = "UPDATE semba_brandon_db.SALARY SET salary = ? "
+                                String insertTable = "UPDATE sembab.SALARY SET salary = ? "
                                                      + "where empSalaryID = " + empID;
                                 PreparedStatement pStmt = connection.prepareStatement(insertTable);
                                 pStmt.setDouble(1,salary);

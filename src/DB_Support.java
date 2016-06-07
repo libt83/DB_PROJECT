@@ -34,7 +34,7 @@ public class DB_Support
     {
         Statement stmt  = myConnection.createStatement();
         String query = "select exists (select firstName,"
-                       + "lastName from semba_brandon_db.EMPLOYEE"
+                       + "lastName from sembab.EMPLOYEE"
                        + " where firstname = '" + name1
                        + "' and lastName = '" + name2 + "')";
 
@@ -62,7 +62,7 @@ public class DB_Support
     public boolean doesEmpIDExist(final int theEmpID) throws SQLException
     {
         Statement stmt  = myConnection.createStatement();
-        String query = "select exists (select empID from semba_brandon_db.EMPLOYEE "
+        String query = "select exists (select empID from sembab.EMPLOYEE "
                        + "where empID = " + theEmpID + ")";
 
 
@@ -89,7 +89,7 @@ public class DB_Support
     public boolean doesSalaryExist(final int theEmpID) throws SQLException
     {
         Statement stmt  = myConnection.createStatement();
-        String query = "select exists (select empSalaryID from semba_brandon_db.SALARY "
+        String query = "select exists (select empSalaryID from sembab.SALARY "
                        + "where empSalaryID = " + theEmpID + ")";
 
 
@@ -116,7 +116,7 @@ public class DB_Support
     public boolean doesNonSalaryExist(final int theEmpID) throws SQLException
     {
         Statement stmt  = myConnection.createStatement();
-        String query = "select exists (select empNonSalaryID from semba_brandon_db.NON_SALARY "
+        String query = "select exists (select empNonSalaryID from sembab.NON_SALARY "
                        + "where empNonSalaryID = " + theEmpID + ")";
 
 
@@ -133,32 +133,6 @@ public class DB_Support
         }
     }
 
-//    /**
-//     * Query the database to determine if the employee has a cert.
-//     * @param theEmpID - the employee ID
-//     * @return
-//     * @throws SQLException
-//     */
-//    public boolean doesCertExist(final int theEmpID) throws SQLException
-//    {
-//        Statement stmt  = myConnection.createStatement();
-//        String query = "select exists (select empNonSalaryID from semba_brandon_db.NON_SALARY "
-//                       + "where empNonSalaryID = " + theEmpID + ")";
-//
-//
-//        ResultSet rs = stmt.executeQuery(query);
-//        rs.next();
-//        int result = rs.getInt(1);
-//        stmt.close();
-//
-//        if(result == 0)
-//        {
-//            return false;
-//        }else{
-//            return true;
-//        }
-//    }
-
     /**
      * Query the database for a specific employee ID.
      *
@@ -171,7 +145,7 @@ public class DB_Support
     {
         Statement stmt = myConnection.createStatement();
 
-        String query = "select empID from semba_brandon_db.EMPLOYEE where firstName = '"
+        String query = "select empID from sembab.EMPLOYEE where firstName = '"
                        + firstName + "' and lastName = '" + lastName + "'";
 
         ResultSet rs = stmt.executeQuery(query);
@@ -192,7 +166,7 @@ public class DB_Support
     {
         Statement stmt = myConnection.createStatement();
 
-        String query = "select street from semba_brandon_db.EMPLOYEE where empID =" + theEmpID;
+        String query = "select street from sembab.EMPLOYEE where empID =" + theEmpID;
 
         ResultSet rs = stmt.executeQuery(query);
         rs.next();
